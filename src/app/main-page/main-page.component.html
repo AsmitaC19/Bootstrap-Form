@@ -1,0 +1,71 @@
+
+  <form class="example-form">
+   <div class="container-fluid">
+    <h3>Main Page</h3>
+      <div>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Full Name" id="fullname" formcontrolname="fullname" required="true">
+      </mat-form-field> 
+      
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Address1" id="Address1" formcontrolname="address1" required="true">
+      </mat-form-field>
+    
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Address2" id="Address2" formcontrolname="address2">
+      </mat-form-field>
+    
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="City" id="city" formcontrolname="city" required="true">
+      </mat-form-field>
+    
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="State" id="state" formcontrolname="state" required="true">
+      </mat-form-field>
+      </div>
+     
+      <div style="text-align: center;">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="submit" (click)="openModal(template)">Submit</button>
+      </div>
+  
+     <ng-template #template>
+      <div class="modal-header">
+        <h4 class="modal-title ">Address Details</h4>
+        <button type="button" class="close" aria-label="Close" data-toggle="modal" data-target="#exampleModal" (click)="modalRef?.hide()">
+          <span aria-hidden="true">x</span>
+        </button>
+      </div>
+  
+      <div class="modal-body">
+        <h6 id="modal_body"></h6>
+        <div style="text-align: center;">
+        <a href="\main-page" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="submit">Submit</a>
+        </div>
+      </div>
+  
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="modalRef?.hide()">Close</button>
+      </div>
+     </ng-template>                
+     </div>      
+ </form>
+  
+
+<script type="text/javascript">
+    $("#exampleModal").click(function () 
+   {
+          var fullname = $("#fullname").val();
+          var address1 = $("#address1").val();
+          var address2 = $("#address2").val();
+          var city = $("#city").val();
+          var state = $("#state").val();
+          var str = "You Have Entered " 
+              + "Full Name: " + fullname 
+              + "Address1: " + address1
+              + "Address2: " + address2
+              + "City: " + city
+              + "State: " + state;
+          $("#modal_body").html(str);
+   });      
+ </script>
+
